@@ -1,7 +1,7 @@
 require_relative '../solver'
 
 describe Solver do
-  before :each do
+  before :all do
     @solver = Solver.new
   end
 
@@ -24,6 +24,16 @@ describe Solver do
 
     it 'throws exception when negative number is passed' do
       expect { @solver.factorial(-1) }.to raise_error(ArgumentError)
+    end
+  end
+
+  context 'when solving a reverse' do
+    it 'returns the reverse of hello string' do
+      expect(@solver.reverse_str('hello')).to eq('olleh')
+    end
+
+    it 'returns the reverse of internet string' do
+      expect(@solver.reverse_str('internet')).to eq('tenretni')
     end
   end
 end
